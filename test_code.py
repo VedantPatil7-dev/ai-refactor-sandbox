@@ -1,9 +1,7 @@
-def compute(q,w):
-# Minor Change
-res=q*0.18
-final=q+res-w
-if final>500:
-print("limit exceeded")
+def check_investment(i,j,k):
+val=i*(1+j)**k
+if val>10000:
+print("high return")
 else:
-print("ok status")
-return final
+print("low return")
+return val
