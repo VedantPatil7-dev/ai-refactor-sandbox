@@ -1,28 +1,20 @@
-def calculate_investment_performance(initial_investment, yearly_interest_rate, investment_duration_years):
-    """
-    Calculates the future value of an investment based on compound interest
-    and categorizes its return as high or low compared to a threshold.
+# Define a constant for the minimum future value considered a "high return".
+HIGH_RETURN_THRESHOLD = 10000
 
-    Args:
-        initial_investment (float): The principal amount invested.
-        yearly_interest_rate (float): The annual interest rate (as a decimal).
-        investment_duration_years (int): The number of years the investment will grow.
+def check_investment_return(principal_amount, annual_interest_rate, number_of_years):
+    # Calculate the future value of the investment using the compound interest formula.
+    # Formula: FV = P * (1 + r)^n, where:
+    # FV = Future Value
+    # P = Principal Amount (initial investment)
+    # r = Annual Interest Rate (as a decimal)
+    # n = Number of Years the investment is held
+    future_value = principal_amount * (1 + annual_interest_rate) ** number_of_years
 
-    Returns:
-        float: The calculated future value of the investment.
-    """
-    # Define the threshold for considering an investment as "high return".
-    HIGH_RETURN_THRESHOLD = 10000.0
-
-    # Calculate the future value using the compound interest formula:
-    # Future Value = Principal * (1 + Interest Rate) ^ Number of Years
-    future_investment_value = initial_investment * (1 + yearly_interest_rate) ** investment_duration_years
-
-    # Compare the calculated future value against the defined threshold.
-    if future_investment_value > HIGH_RETURN_THRESHOLD:
-        print("Investment shows a high return.")
+    # Determine if the calculated future value meets or exceeds the high return threshold.
+    if future_value > HIGH_RETURN_THRESHOLD:
+        print("high return") # Output message indicating a high return.
     else:
-        print("Investment shows a low return.")
+        print("low return") # Output message indicating a low return.
 
-    # Return the calculated future value for potential further analysis.
-    return future_investment_value
+    # Return the calculated future value of the investment.
+    return future_value
